@@ -5,11 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', function () {
-    return view('index');
+    return redirect('/upload');
 });
 Route::get('/upload', function () {
     return view('upload');
@@ -23,7 +19,7 @@ Route::post('/classify', function (Request $request) {
 
     // Definisi kelas sesuai ketentuan
     $classes = [
-        0 => 'Background',
+        0 => 'Background (Gambar Bukan Daun)',
         1 => 'Black Rot',
         2 => 'Esca',
         3 => 'Leaf Blight',

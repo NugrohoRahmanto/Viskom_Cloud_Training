@@ -14,7 +14,7 @@
             
             <form action="{{ url('/classify') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label for="image" class="upload-box d-block mt-3">
+                <label for="image" class="upload-box d-block mt-3" id="drop-area">
                     <input type="file" name="image" id="image" class="d-none" accept="image/*" required onchange="previewImage(event)">
                     <p>📤 Drag & drop gambar di sini atau klik untuk memilih</p>
                 </label>
@@ -38,7 +38,7 @@
                     <!-- Menampilkan gambar hasil upload -->
                     <img src="{{ asset('storage/' . $imagePath) }}" alt="Hasil Upload" class="img-fluid rounded shadow-sm" style="max-width: 300px; margin-top: 10px;">
                     
-                    <p><strong>Kelas:</strong> {{ $class_name }}</p>
+                    <p id="kelas"><strong>Tipe penyakit:</strong> {{ $class_name }}</p>
                     <p><strong>Confidence:</strong> {{ number_format($confidence * 100, 2) }}%</p>
                 </div>
             @endif
@@ -62,8 +62,30 @@
             document.getElementById('preview-container').style.display = "none";
         }
 
-        document.querySelector('.upload-box').addEventListener('click', function () {
-            document.getElementById('image').click();
+        // Drag & Drop Functionality
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('image');
+
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.style.border = '2px solid #0056b3';
+            dropArea.style.backgroundColor = '#e9ecef';
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.style.border = '2px dashed #007bff';
+            dropArea.style.backgroundColor = '#ffffff';
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.style.border = '2px dashed #007bff';
+            dropArea.style.backgroundColor = '#ffffff';
+
+            if (event.dataTransfer.files.length > 0) {
+                fileInput.files = event.dataTransfer.files;
+                previewImage({ target: fileInput });
+            }
         });
     </script>
 </body>
