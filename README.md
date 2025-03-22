@@ -200,7 +200,7 @@ Evaluasi dilakukan dengan menguji model pada dataset **Test Set** yang berisi ga
 
 Hasil evaluasi divisualisasikan menggunakan **Confusion Matrix**, yang menunjukkan jumlah prediksi benar dan salah untuk setiap kelas. Confusion matrix ini memberikan gambaran detail tentang bagaimana model melakukan klasifikasi dan kategori mana yang paling sering keliru diklasifikasikan.
 
-![Confusion matrix](/image/)
+![Confusion matrix](/image/confusion-matrix.png)
 
 Dari confusion matrix yang didapatkan, terlihat bahwa model memiliki akurasi tinggi dalam mengklasifikasikan semua kategori, dengan kesalahan klasifikasi yang sangat minim.
 
