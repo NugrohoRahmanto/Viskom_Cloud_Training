@@ -255,4 +255,4 @@ Berikut adalah tampilan antarmuka utama dari website klasifikasi penyakit tanama
 ### 5.3 Klasifikasi Gambar
 
 Pengguna dapat mengunggah gambar daun anggur, dan sistem akan menampilkan hasil klasifikasi berdasarkan model yang telah dilatih. Berikut adalah tampilan hasil klasifikasi setelah gambar diunggah:
-*(Gambar tampilan hasil klasifikasi akan ditambahkan di sini)*
+![Tampilan Website](/image/website-2.png)
